@@ -47,16 +47,19 @@ public class GuiAccountManager extends GuiScreen {
 
     buttonList.clear();
     buttonList.add(loginButton = new GuiButton(
-      0, width / 2 - 150 - 4, height - 52, 150, 20, "Login"
+            0, width / 2 - 150 - 4, height - 52, 100, 20, "Login"
     ));
     buttonList.add(new GuiButton(
-      1, width / 2 + 4, height - 52, 150, 20, "Add"
+            1, width / 2 - 50, height - 52, 100, 20, "Add Microsoft"
+    ));
+    buttonList.add(new GuiButton(
+            4, width / 2 + 50 + 4, height - 52, 100, 20, "Add Token"
     ));
     buttonList.add(deleteButton = new GuiButton(
-      2, width / 2 - 150 - 4, height - 28, 150, 20, "Delete"
+            2, width / 2 - 150 - 4, height - 28, 150, 20, "Delete"
     ));
     buttonList.add(cancelButton = new GuiButton(
-      3, width / 2 + 4, height - 28, 150, 20, "Cancel"
+            3, width / 2 + 4, height - 28, 150, 20, "Cancel"
     ));
 
     guiAccountList = new GuiAccountList(mc);
@@ -275,6 +278,10 @@ public class GuiAccountManager extends GuiScreen {
         break;
         case 3: { // Cancel
           mc.displayGuiScreen(previousScreen);
+        }
+        break;
+        case 4: { // Token
+          mc.displayGuiScreen(new GuiTokenLogin(previousScreen));
         }
         break;
         default: {
